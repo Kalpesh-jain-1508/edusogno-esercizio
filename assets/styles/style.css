@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 120px;
+    padding: 0 50px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 18px -6px #0057FF;
+    border-radius: 0 0 13px 13px;
+    position: absolute;
+    justify-content: space-between;
+}
+header .logo {
+    margin-top: 15px;
+    cursor: pointer;
+}
+header .dropdown button {
+    background-color: #0057FF;
+    border: 0;
+}
+header .dropdown button:hover,
+header .dropdown button:focus {
+    background-color: #0057FF;
+}
+
+.account {
+    background-image: url(../img/Registrazione.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.account .form {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.account h3 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #134077;
+    margin-bottom: 20px;
+}
+
+.account .formData {
+    width: 662px;
+    height: auto;
+    border-radius: 19px;
+    border: 1px solid #134077;
+    padding: 45px;
+    background-color: white;
+}
+
+.account form .input-group {
+    margin-bottom: 35px;
+}
+
+.account form label {
+    font-size: 13px;
+    font-weight: 700;
+    display: block;
+}
+
+.account form input {
+    width: 100%;
+    border: 0;
+    padding: 13px 0 5px 0;
+    font-size: 20px;
+    outline: none;
+    border-bottom: 1px solid #2D224C;
+    font-weight: 400;
+}
+
+.account form .input-pass {
+    position: relative;
+}
+
+.account form .input-group .input-pass .fa-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0057FF;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.account form .form-btn {
+    background-color: #0057FF;
+    color: #ffffff;
+    border: 0;
+    width: 100%;
+    height: 59px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 25px 0 40px;
+    cursor: pointer;
+    border-radius: 11px;
+}
+
+.account .formData .copy-right {
+    text-align: center;
+}
+
+.account .formData .copy-right a {
+    font-size: 13px;
+    font-weight: 400;
+    color: #2D224C;
+}
+
+.account .formData .copy-right a span {
+    font-weight: 700;
+}
+
+
+::placeholder {
+    color: #CCCCCC;
+    font-weight: 400;
+}
+
+/* page3 */
+
+.account .event-list {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.account .event-list .event {
+    width: 349px;
+    height: auto;
+    border: 1px solid #134077;
+    background-color: white;
+    border-radius: 19px;
+    margin: 0 40px;
+    padding: 30px;
+}
+
+.account .event-list .event h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.account .event-list .event p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #CCCCCC;
+}
+
+.account .event-list .event button {
+    background-color: #0057FF;
+    width: 100%;
+    height: 59px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    margin-top: 25px;
+    border-radius: 11px;
+}
+
+@media screen and (max-width : 1400px) {
+    .account .event-list .event {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width : 1200px) {
+    .account .event-list .event {
+        margin: 0 10px;
+    }
+
+    .account .event-list .event h2 {
+        font-size: 24px;
+    }
+
+    .account .event-list .event p {
+        font-size: 16px;
+    }
+
+    .account .event-list .event button {
+        font-size: 15px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width : 991px) {
+
+    .acc {
+        top: 60% !important;
+        width: 100%;
+    }
+
+    .account .event-list {
+        flex-wrap: wrap;
+        margin: 0 0 20px;
+    }
+
+    .account .event-list .event {
+        width: 70%;
+        margin: 10px auto;
+    }
+}
+
+
+@media screen and (max-width : 768px) {
+    .account .formData {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width : 520px) {
+    .account .formData {
+        width: 300px;
+        padding: 35px 30px;
+    }
+
+    .account h3 {
+        font-size: 24px;
+    }
+
+    .account form .form-btn {
+        margin: 20px 0 40px;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    .account form input {
+        font-size: 16px;
+    }
+}
+
+.account.admin .form {
+    max-width: 60%;
+    width: 100%;
+}
+
+p.error {
+    color: red;
+    /* text-align: center; */
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #2173d3;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Button styles */
+button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.add-event {
+    background-color: #0000ee;
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.add-event a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.adminheading {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
