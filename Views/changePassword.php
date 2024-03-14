@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registration</title>
+  <title>Change Password</title>
   <link rel="stylesheet" href="../assets/styles/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,41 +32,36 @@
 
     <section class="account">
         <div class="form">
-          <h3>Aggiorna evento</h3>
+          <h3>cambiare la password</h3>
             <div class="formData">
-              <?php
+            <?php
+                session_start();
                 if (isset($_GET['error'])) {
                     echo '<p class="error">' . htmlspecialchars($_GET['error']) . '</p>';
                 }
               ?>
               <p id="error-message" class="error"></p>
 
-              <form action="./edit.php" onsubmit="return validateForm()" name="UpdateEventForm" method="post">
+              <form action="./password.php" onsubmit="return validateForm()" name="changepassword" method="post">
              
-                    <?php  
-                        require_once('../Controller/EventController.php');
-                        $eventController = new EventController();
-
-                        // Fetch events
-                        $events = $eventController->getEvents($_GET['id']);
-                        
-                    // Check if events are retrieved successfully
-                    ?>
                         <div class="input-group">
-                            <label for="">Nome Evento</label>
-                            <input type="hidden" name="id" value="<?php echo $events->id ?>">
-                            <input type="text" placeholder="Mario" name="nome" value="<?php echo $events->nome_evento ?>">
-                        </div>
-                        
-            
-                        <div class="input-group">
-                            <label for="">Inserisci il cognome</label>
-                            <input type="date" id="eventDateInput" name="eventdate">
+                            <label for="">password attuale</label>
+                            <input type="hidden" name="id" value=<?php echo $_SESSION['user_id']; ?>>
+                            <input type="text" placeholder="Mario" name="current_password">
                         </div>
 
-                
+                        <div class="input-group">
+                            <label for="">nuova password</label>
+                            <input type="text" placeholder="Mario" name="new_password">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="">Conferma password</label>
+                            <input type="text" placeholder="Mario" name="confirm_password">
+                        </div>
+                                        
                         <div>
-                            <button class="form-btn">Update</button>
+                            <button class="form-btn">Aggiorna password</button>
                         </div>
 
               </form>
@@ -76,23 +72,22 @@
     <script>
       
       function validateForm() {
-          var nome = document.forms["UpdateEventForm"]["nome"].value;
-          var cognome = document.forms["UpdateEventForm"]["eventdate"].value;
+          var current_password = document.forms["changepassword"]["current_password"].value;
+          var new_password = document.forms["changepassword"]["new_password"].value;
+          var confirm_password = document.forms["changepassword"]["confirm_password"].value;
 
           var errorMessage = document.getElementById("error-message");
 
-          if (nome.trim() === "" || cognome.trim() === "") {
+          if (current_password.trim() === "" || new_password.trim() === "" || confirm_password.trim() === "") {
               errorMessage.textContent = "Tutti i campi sono obbligatori!";
               return false;
           }
+          if (new_password !== confirm_password) {
+            errorMessage.textContent = "conferma password non corrisponde!";
+            return false;
+          }
           return true;
       }
-   
-    // Get the formatted date from PHP and convert it to the format accepted by the date input field (YYYY-MM-DD)
-    var formattedDate = '<?php echo date('Y-m-d', strtotime($events->data_evento)); ?>';
-
-    // Set the value of the date input field
-    document.getElementById('eventDateInput').value = formattedDate;
 </script>
   
 </body>

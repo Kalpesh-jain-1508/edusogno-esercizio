@@ -31,7 +31,7 @@
 
     <section class="account">
         <div class="form">
-          <h3>Crea il tuo account</h3>
+          <h3>Crea il tuo evento</h3>
             <div class="formData">
               <?php
                     if (isset($_GET['error'])) {
@@ -62,7 +62,7 @@
 
                 
                         <div>
-                            <button class="form-btn">Add</button>
+                            <button class="form-btn">Aggiungere</button>
                         </div>
 
               </form>

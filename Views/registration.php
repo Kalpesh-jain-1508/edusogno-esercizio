@@ -25,9 +25,6 @@
 
       $result = $conn->query($getEmail);
 
-    echo $getEmail;
-    print_r($result);
-
     if ($result->num_rows > 0) {
       // echo "test1";
       // die;

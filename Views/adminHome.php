@@ -1,3 +1,18 @@
+<?php 
+ session_start();
+
+    if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_isAdmin']) && $_SESSION['user_isAdmin'] != 1) {
+            header("Location: ./home.php");
+            exit();
+        }
+    } else {
+        // Redirect to login page
+        header("Location: ../index.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,8 +53,8 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Change Password</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="./changePassword.php">Change Password</a></li>
+                <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
             </ul>
         </div>
     </header>
@@ -85,7 +100,9 @@
                 }
                 
             } else {
-                echo '<p>No events found.</p>';
+                echo '<tr>';
+                echo '<td>no events found</td>';
+                echo '</tr>';
             }
             ?>
             </tbody>

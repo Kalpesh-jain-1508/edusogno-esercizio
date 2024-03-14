@@ -1,5 +1,5 @@
 <?php
-    error_reporting (E_PARSE);
+    // error_reporting (E_PARSE);
     // Include and initialize UserController
     require_once('../Controller/UserController.php');
 
@@ -10,10 +10,12 @@
       $password = $_POST['password'];
 
       $user = $userController->login($email, $password);
-
+// print_r($user);
+// print_r($_SESSION['user_isAdmin']);
+// die;
       if ($user) {
         // Login successful, handle user session or redirect
-        if($user->isAdmin == 1) {
+        if($_SESSION['user_isAdmin'] == 1) {
           header("Location: adminHome.php");
         } else {
           header("Location: home.php");
