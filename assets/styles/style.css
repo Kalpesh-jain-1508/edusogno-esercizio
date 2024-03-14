@@ -313,3 +313,8 @@ button:hover {
     align-content: center;
     align-items: center;
 }
+a.reset_password {
+    float: right;
+    text-decoration: none;
+    margin-top: 15px;
+}

@@ -47,13 +47,15 @@ class UserController {
       $subject = 'Registration Successful';
       $message = 'Hello ' . $nome . '! Thank you for registering with us.';
       $headers = 'From: kalpesh.v2web@gmail.com' . "\r\n" .
-          'Reply-To: your@example.com' . "\r\n" .
+          'Reply-To: kalpesh.v2web@gmail.com' . "\r\n" .
           'X-Mailer: PHP/' . phpversion();
 
       // Send the email
-      mail($to, $subject, $message, $headers);
-      print_r($to, $subject, $message, $headers);
-      die;
+      if (mail($to, $subject, $message, $headers)) {
+        echo "Email sent successfully.";
+      } else {
+          echo "Failed to send email.";
+      }
       return true;
     } else {
       return false;

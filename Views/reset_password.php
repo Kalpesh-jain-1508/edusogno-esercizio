@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Reset Password</title>
-</head>
-<body>
-  <h1>Reset Password</h1>
-  <form action="reset_password.php" method="post">
-    <label for="email">Email:</label><br>
-    <input type="email" name="email" id="email" required><br><br>
-    <label for="newPassword">New Password:</label><br>
-    <input type="password" name="newPassword" id="newPassword" required><br><br>
-    <button type="submit">Reset Password</button>
-  </form>
   <?php
+    error_reporting (E_PARSE);
     // Include and initialize UserController
     require_once('../Controller/UserController.php');
-    $userController = new UserController($dsn, $username, $password); // Replace with connection details
+    $userController = new UserController(); // Replace with connection details
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $email = $_POST['email'];
-      $newPassword = $_POST['newPassword'];
+      // Send email notification
+      $to = $email;
+      $subject = 'Reset Password';
+      $message = 'Hello! Please click on the following link to reset your password: https://phpstack-277837-4393675.cloudwaysapps.com/Views/rtPassword.php?email=' . $email;
+      $headers = 'From: kalpesh.v2web@gmail.com' . "\r\n" .
+          'Reply-To: kalpesh.v2web@gmail.com' . "\r\n" .
+          'X-Mailer: PHP/' . phpversion();
 
-      if ($userController->resetPassword($email, $newPassword)) {
-        echo "Password reset successful!";
+      // Send the email
+      if (mail($to, $subject, $message, $headers)) {
+        echo "Email sent successfully.";
+        header("Location: ../index.php");
+        exit;
       } else {
-        echo "Password reset failed!";
+        return false;
+        exit;
+        echo "Failed to send email.";
       }
     }
   ?>
-</body>
-</html
+
