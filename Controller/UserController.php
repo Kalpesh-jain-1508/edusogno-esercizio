@@ -64,17 +64,17 @@ class UserController {
   public function login($email, $password) {
     session_start();
 
-    $to_email = "kalpesh.v2web@gmail.com";
-    $subject = "Simple Email Test via PHP";
-    $body = "Hi,nn This is test email send by PHP Script";
-    $headers = "From: sender\'s email";
+    // $to_email = "shreya.v2web@gmail.com";
+    // $subject = "Simple Email Test via PHP";
+    // $body = "Hi,nn This is test email send by PHP Script";
+    // $headers = "From: sender\'s email";
     
-    if (mail($to_email, $subject, $body, $headers)) {
-        echo "Email successfully sent to $to_email...";
-    } else {
-        echo "Email sending failed...";
-    }
-    die;
+    // if (mail($to_email, $subject, $body, $headers)) {
+    //     echo "Email successfully sent to $to_email...";
+    // } else {
+    //     echo "Email sending failed...";
+    // }
+    // die;
     $stmt = $this->db->prepare("
       SELECT * FROM utenti WHERE email = ?");
     $stmt->bindParam(1, $email);
