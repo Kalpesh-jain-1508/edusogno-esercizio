@@ -89,7 +89,7 @@ header .dropdown button:focus {
     position: relative;
 }
 
-.account form .input-group .input-pass .fa-eye {
+.account form .input-group .input-pass svg {
     position: absolute;
     right: 10px;
     top: 50%;

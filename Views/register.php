@@ -62,7 +62,7 @@
                     <label for="">Inserisci la password</label>
                     <div class="input-pass">
                         <input type="password" placeholder="Scrivila qui" name="password" id="password">
-                        <i class="fa-solid fa-eye" onclick="showPass()"></i>
+                        <i class="fa-solid fa-eye" onclick="showPass(this)"></i>
                     </div>
                 </div>
 
