@@ -4,6 +4,7 @@
     require_once('../config/database.php');
     require_once('../Controller/UserController.php');
 
+
     $userController = new UserController();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -35,9 +36,25 @@
           $user = $userController->register($nome, $cognome, $email, $password, $isAdmin);
           
           if ($user) {
-              
-              header("Location: home.php");
-              exit;
+
+            header("Location: home.php");
+
+            // Send email notification
+            $to = 'kalpesh.v2web@gmail.com';
+            $subject = 'Registration Successful';
+            $message = 'Hello! Thank you for registering with us.';
+            $headers = 'From: '.$email."\r\n".
+            'Reply-To: '.$email."\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+            // Send the email
+            if (@mail($to, $subject, $message, $headers)) {
+              echo "Email sent successfully.";
+            } else {
+              echo "Failed to send email.";
+            }
+            
+            exit;
               
             } else {
                 

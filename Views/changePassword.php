@@ -1,3 +1,17 @@
+<?php
+    session_start();
+   
+    if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_isAdmin']) && $_SESSION['user_isAdmin'] != 1) {
+            header("Location: ./home.php");
+            exit();
+        }
+    } else {
+        // Redirect to login page
+        header("Location: ../index.php");
+        exit();
+    }
+?>
 
 <!DOCTYPE html>
 <html>

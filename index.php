@@ -71,8 +71,9 @@
                     <label for="">Inserisci la password</label>
                     <div class="input-pass">
                         <input type="password" name="password" placeholder="Scrivila qui" id="password">
-                        <i class="fa-solid fa-eye" onclick="showPass()"></i>
+                        <i class="fa-solid fa-eye" onclick="showPass(this)"></i>
                     </div>
+                    <a href="./Views/resetPassword.php" class="reset_password">Resetta la password</a>
                 </div>
 
                 <div>

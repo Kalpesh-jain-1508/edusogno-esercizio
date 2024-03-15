@@ -10,9 +10,9 @@
       $password = $_POST['password'];
 
       $user = $userController->login($email, $password);
-// print_r($user);
-// print_r($_SESSION['user_isAdmin']);
-// die;
+      // print_r($user);
+      // print_r($_SESSION['user_isAdmin']);
+      // die;
       if ($user) {
         // Login successful, handle user session or redirect
         if($_SESSION['user_isAdmin'] == 1) {

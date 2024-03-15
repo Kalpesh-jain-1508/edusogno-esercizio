@@ -38,8 +38,7 @@ class EventController {
   }
   public function getEvents($id) {
     $stmt = $this->db->prepare("SELECT * FROM eventi where id = $id");
-    $stmt->execute();
-    
+    $stmt->execute();    
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $events = new Event($row['id'], $row['nome_evento'], $row['attendees'], $row['data_evento']);
@@ -69,14 +68,15 @@ class EventController {
   }
 
   // Edit Event (Admin Only)
-  public function editEvent($id, $nome, $cognome) {
+  public function editEvent($id, $nome, $cognome, $attendees) {
     $stmt = $this->db->prepare("
-        UPDATE eventi SET nome_evento = ?, data_evento = ? 
+        UPDATE eventi SET nome_evento = ?, data_evento = ?, attendees = ? 
         WHERE id = ?");
 
     $stmt->bindParam(1, $nome);
     $stmt->bindParam(2, $cognome);
-    $stmt->bindParam(3, $id);
+    $stmt->bindParam(3, $attendees);
+    $stmt->bindParam(4, $id);
     // Bind parameters
     // $stmt->bind_param("si", $nome, $id);
     

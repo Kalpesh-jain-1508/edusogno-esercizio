@@ -42,20 +42,21 @@ class UserController {
       $_SESSION['user_email'] = $email;
       $_SESSION['user_id'] = $this->db->lastInsertId();
 
-      // Send email notification
-      $to = $email;
-      $subject = 'Registration Successful';
-      $message = 'Hello ' . $nome . '! Thank you for registering with us.';
-      $headers = 'From: kalpesh.v2web@gmail.com' . "\r\n" .
-          'Reply-To: kalpesh.v2web@gmail.com' . "\r\n" .
-          'X-Mailer: PHP/' . phpversion();
+      // // Send email notification
+      // $to = 'kalpesh.v2web@gmail.com';
+      // $subject = 'Registration Successful';
+      // $message = 'Hello ' .clean_string($nome). '! Thank you for registering with us.';
+      // $headers = 'From: '.$email."\r\n".
+      // 'Reply-To: '.$email."\r\n" .
+      // 'X-Mailer: PHP/' . phpversion();
 
-      // Send the email
-      if (mail($to, $subject, $message, $headers)) {
-        echo "Email sent successfully.";
-      } else {
-          echo "Failed to send email.";
-      }
+      // // Send the email
+      // if (@mail($to, $subject, $message, $headers)) {
+      //   echo "Email sent successfully.";
+      // } else {
+      //   echo "Failed to send email.";
+      // }
+
       return true;
     } else {
       return false;
@@ -66,17 +67,6 @@ class UserController {
   public function login($email, $password) {
     session_start();
 
-    // $to_email = "shreya.v2web@gmail.com";
-    // $subject = "Simple Email Test via PHP";
-    // $body = "Hi,nn This is test email send by PHP Script";
-    // $headers = "From: sender\'s email";
-    
-    // if (mail($to_email, $subject, $body, $headers)) {
-    //     echo "Email successfully sent to $to_email...";
-    // } else {
-    //     echo "Email sending failed...";
-    // }
-    // die;
     $stmt = $this->db->prepare("
       SELECT * FROM utenti WHERE email = ?");
     $stmt->bindParam(1, $email);

@@ -54,9 +54,13 @@
                         <div class="input-group">
                             <label for="">Nome Evento</label>
                             <input type="hidden" name="id" value="<?php echo $events->id ?>">
-                            <input type="text" placeholder="Mario" name="nome" value="<?php echo $events->nome_evento ?>">
+                            <input type="text" placeholder="Mario" name="nome" value="<?php echo $events->nome_evento; ?>">
                         </div>
                         
+                        <div class="input-group">
+                            <label for="">Attendees</label>
+                            <input type="textarea" placeholder="example@gmail.com, example2@gmail" name="attendees" value="<?php echo $events->attendees; ?>">
+                        </div>
             
                         <div class="input-group">
                             <label for="">Inserisci il cognome</label>
@@ -78,10 +82,11 @@
       function validateForm() {
           var nome = document.forms["UpdateEventForm"]["nome"].value;
           var cognome = document.forms["UpdateEventForm"]["eventdate"].value;
+          var attendees = document.forms["UpdateEventForm"]["attendees"].value;
 
           var errorMessage = document.getElementById("error-message");
 
-          if (nome.trim() === "" || cognome.trim() === "") {
+          if (nome.trim() === "" || cognome.trim() === "" || attendees.trim() === "") {
               errorMessage.textContent = "Tutti i campi sono obbligatori!";
               return false;
           }

@@ -51,8 +51,8 @@
                         <div class="input-group">
                             <label for="">Attendees</label>
                            
-                            <!-- <input type="textarea" placeholder="Mario" name="attendees" value=""> -->
-                            <textarea placeholder="Mario" name="attendees"></textarea>
+                            <input type="textarea" placeholder="example@gmail.com, example2@gmail" name="attendees" value="">
+                            <!-- <textarea placeholder="Mario" name="attendees"></textarea> -->
                         </div>
             
                         <div class="input-group">
@@ -75,10 +75,11 @@
       function validateForm() {
           var nome = document.forms["UpdateEventForm"]["nome"].value;
           var cognome = document.forms["UpdateEventForm"]["eventdate"].value;
+          var attendees = document.forms["UpdateEventForm"]["attendees"].value;
 
           var errorMessage = document.getElementById("error-message");
 
-          if (nome.trim() === "" || cognome.trim() === "") {
+          if (nome.trim() === "" || cognome.trim() === "" || attendees.trim() === "") {
               errorMessage.textContent = "Tutti i campi sono obbligatori!";
               return false;
           }
