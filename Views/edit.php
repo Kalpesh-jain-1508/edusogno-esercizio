@@ -24,7 +24,7 @@
                 foreach ($mailsender as $user_mail) {
 
                     $to = 'kalpesh.v2web@gmail.com';
-                    $subject = 'New Event Created';
+                    $subject = 'Event Updates';
                     $message = 'Hello!' . "\n" . 'events Updates. Please visit our website to see the events';
                     $headers = 'From: '.$user_mail."\r\n".
                     'Reply-To: '.$user_mail."\r\n" .

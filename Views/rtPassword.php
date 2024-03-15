@@ -1,15 +1,3 @@
-<?php 
-    if (isset($_SESSION['user_id'])) {
-        if (isset($_SESSION['user_isAdmin']) && $_SESSION['user_isAdmin'] != 1) {
-            header("Location: ./home.php");
-            exit();
-        }
-    } else {
-        // Redirect to login page
-        header("Location: ../index.php");
-        exit();
-    }
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +38,7 @@
 
               <form action="./rt_password.php" onsubmit="return validateForm()" name="resetpassword" method="post">
                         
-                        <input type="hidden" name="id" value=<?php echo $_GET['email'] ?>>
+                        <input type="hidden" name="email" value=<?php echo $_GET['email'] ?>>
                         <div class="input-group">
                             <label for="">nuova password</label>
                             <input type="text" placeholder="Mario" name="new_password">

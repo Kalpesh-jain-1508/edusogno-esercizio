@@ -10,6 +10,7 @@
 
       if ($userController->resetPassword($email, $newPassword)) {
         echo "Password reset successful!";
+        header('Location: ../index.php');
       } else {
         echo "Password reset failed!";
       }

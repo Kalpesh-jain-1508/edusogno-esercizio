@@ -17,8 +17,11 @@
             // Send the email
             if (@mail($to, $subject, $message, $headers)) {
               echo "Email sent successfully.";
+              header('Location: ../index.php');
+              return true;
             } else {
               echo "Failed to send email.";
+              return false;
             }
     }
   ?>
